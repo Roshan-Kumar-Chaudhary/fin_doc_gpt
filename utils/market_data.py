@@ -5,7 +5,7 @@ from datetime import datetime, timedelta
 
 class MarketDataFetcher:
     def __init__(self):
-        self.ticker_cache = {}  # Simple cache to avoid repeated API calls
+        self.ticker_cache = {}  
 
     def get_historical_data(self, ticker: str, period: str = "1y") -> pd.DataFrame:
         """Fetch historical market data with timezone handling"""
@@ -14,7 +14,6 @@ class MarketDataFetcher:
         
         data = yf.Ticker(ticker).history(period=period)
         
-        # Remove timezone from index if present
         if data.index.tz is not None:
             data.index = data.index.tz_localize(None)
         

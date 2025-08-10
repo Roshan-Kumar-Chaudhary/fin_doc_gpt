@@ -1,4 +1,3 @@
-# qa/hybrid_qa.py
 from transformers import pipeline
 from typing import Union
 
